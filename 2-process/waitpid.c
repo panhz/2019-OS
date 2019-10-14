@@ -15,7 +15,7 @@ void fork8() {
             exit(100+i); /* Child */
         }
     for (i = 0; i < N; i++) { /* Parent */
-        pid_t wpid = wait(&child_status);
+        pid_t wpid = waitpid(&child_status);
         if (WIFEXITED(child_status))
             printf("Child %d terminated with exit status %d\n",
                    wpid, WEXITSTATUS(child_status));
